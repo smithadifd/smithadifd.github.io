@@ -4,6 +4,7 @@ export interface Project {
   tagline: string;
   description: string;
   github: string;
+  demo?: string;
   tech: string[];
   features: string[];
   motivation: string;
@@ -20,6 +21,7 @@ export const projects: Project[] = [
     description:
       "Self-hosted web app that tracks game deals across 30+ stores, manages your Steam library and backlog, and helps you decide what to play next with value scoring and mood-based recommendations.",
     github: "https://github.com/smithadifd/hoard",
+    demo: "https://hoard.smithadifd.com",
     tech: [
       "Next.js 16",
       "TypeScript",
@@ -70,6 +72,7 @@ export const projects: Project[] = [
     description:
       "Dual-stack dashboard combining stock data from multiple sources with Claude AI analysis, TradingView charts, and Discord alerts. Designed for personal investment research without subscription fees.",
     github: "https://github.com/smithadifd/investing_companion",
+    demo: "https://invest.smithadifd.com",
     tech: [
       "Next.js 16",
       "FastAPI",
@@ -122,6 +125,7 @@ export const projects: Project[] = [
     description:
       "Team planner for Pokemon games with type coverage analysis, move/ability selection, and a searchable Pokedex powered by PokeAPI data synced to a local database.",
     github: "https://github.com/smithadifd/starting-six",
+    demo: "https://starting-six.smithadifd.com",
     tech: [
       "Next.js 16",
       "TypeScript",

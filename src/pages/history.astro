@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { experience, education } from '../data/experience';
+---
+
+<Layout title="Experience - Andrew Smith" description="Nine years of building production web applications across Vue, React, Next.js, and beyond.">
+  <div class="max-w-6xl mx-auto px-6 pt-12 pb-20">
+    <!-- Header -->
+    <header class="mb-24">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
+        <span class="font-mono text-[10px] text-text-muted tracking-[0.3em] uppercase">Experience</span>
+      </div>
+
+      <h1 class="headline-italic text-6xl md:text-8xl text-text-primary tracking-tight leading-[0.9] mb-8">
+        Nine years of<br />
+        <span class="text-primary">shipping code.</span>
+      </h1>
+
+      <p class="text-text-secondary text-lg md:text-xl max-w-2xl leading-relaxed">
+        From Flash-to-Vue migrations to AI-augmented engineering workflows.
+        Each role shaped how I think about architecture, performance, and developer experience.
+      </p>
+    </header>
+
+    <!-- Timeline -->
+    <div class="relative">
+      {/* Center line — desktop only */}
+      <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/40 via-secondary/30 to-transparent hidden md:block md:-translate-x-1/2"></div>
+
+      {experience.map((role, i) => {
+        const isLeft = i % 2 === 0;
+        const accentColor = role.accent === "primary" ? "primary" : "secondary";
+
+        return (
+          <div class="relative mb-28 flex flex-col md:flex-row items-start md:items-center justify-between w-full group">
+            {/* Timeline dot — desktop */}
+            <div class={`hidden md:block absolute left-1/2 -translate-x-1/2 w-3 h-3 bg-bg-base border-2 border-${accentColor} z-10`}></div>
+
+            {/* Content card */}
+            <div class:list={[
+              "w-full md:w-[46%]",
+              isLeft ? "md:mr-auto" : "md:ml-auto"
+            ]}>
+              <div class={`bg-surface-low border border-border-ghost p-8 md:p-10 glow-hover-${role.accent} rounded-lg transition-all`}>
+                <div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+                  <span class={`font-mono text-[10px] text-${accentColor} uppercase tracking-[0.2em] bg-${accentColor}/10 px-3 py-1.5 font-bold rounded`}>
+                    {role.title}
+                  </span>
+                  <span class="font-mono text-xs text-text-muted tracking-wider">{role.period}</span>
+                </div>
+
+                <h2 class="headline-italic text-3xl md:text-4xl text-text-primary mb-4">{role.company}</h2>
+
+                <p class="text-text-secondary leading-relaxed mb-8">{role.description}</p>
+
+                <ul class="space-y-3 mb-8">
+                  {role.accomplishments.map((a) => (
+                    <li class="flex items-start gap-3 text-sm text-text-secondary leading-relaxed">
+                      <span class={`mt-1.5 shrink-0 w-1 h-1 rounded-full bg-${accentColor}`}></span>
+                      {a}
+                    </li>
+                  ))}
+                </ul>
+
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-border-ghost">
+                  {role.tech.map((t) => (
+                    <span class={`font-mono text-[10px] px-3 py-1 bg-surface-high text-${accentColor}/80 border border-border-ghost rounded`}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+
+      {/* Education */}
+      <div class="relative mb-12 flex flex-col md:flex-row items-start md:items-center justify-between w-full">
+        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 w-3 h-3 bg-bg-base border-2 border-tertiary-soft z-10"></div>
+        <div class="w-full md:w-[46%] md:mr-auto">
+          <div class="bg-surface-low border border-border-ghost p-8 md:p-10 rounded-lg">
+            <div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+              <span class="font-mono text-[10px] text-tertiary-soft uppercase tracking-[0.2em] bg-tertiary-soft/10 px-3 py-1.5 font-bold rounded">
+                Education
+              </span>
+              <span class="font-mono text-xs text-text-muted tracking-wider">{education.year}</span>
+            </div>
+            <h2 class="headline-italic text-3xl text-text-primary mb-2">{education.school}</h2>
+            <p class="text-text-secondary">{education.degree}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills summary -->
+    <section class="mt-20">
+      <div class="flex items-center gap-4 mb-8">
+        <span class="font-mono text-xs text-primary tracking-widest">Skills</span>
+        <div class="flex-1 h-px bg-gradient-to-r from-border-ghost to-transparent"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-surface-low border border-border-ghost p-6 rounded-lg">
+          <h3 class="font-mono text-[10px] text-text-muted uppercase tracking-widest mb-4">Languages</h3>
+          <p class="text-text-secondary text-sm leading-relaxed">JavaScript, TypeScript, HTML, CSS, Python</p>
+        </div>
+        <div class="bg-surface-low border border-border-ghost p-6 rounded-lg">
+          <h3 class="font-mono text-[10px] text-text-muted uppercase tracking-widest mb-4">Frameworks</h3>
+          <p class="text-text-secondary text-sm leading-relaxed">Vue.js, React, Next.js, Ember, Node.js, Lit, FastAPI</p>
+        </div>
+        <div class="bg-surface-low border border-border-ghost p-6 rounded-lg">
+          <h3 class="font-mono text-[10px] text-text-muted uppercase tracking-widest mb-4">AI & Tooling</h3>
+          <p class="text-text-secondary text-sm leading-relaxed">Claude, Claude Code, Codex, agentic workflows, LLM-augmented development</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

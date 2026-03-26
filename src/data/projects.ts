@@ -11,6 +11,7 @@ export interface Project {
   architecture: string;
   decisions: { title: string; detail: string }[];
   color: string;
+  metrics?: { label: string; value: string }[];
 }
 
 export const projects: Project[] = [
@@ -64,6 +65,12 @@ export const projects: Project[] = [
       },
     ],
     color: "#3b82f6",
+    metrics: [
+      { label: "Games Tracked", value: "538+" },
+      { label: "Price Snapshots", value: "15k+" },
+      { label: "Test Coverage", value: "208 tests" },
+      { label: "Stores Monitored", value: "30+" },
+    ],
   },
   {
     slug: "investing-companion",
@@ -117,6 +124,12 @@ export const projects: Project[] = [
       },
     ],
     color: "#10b981",
+    metrics: [
+      { label: "Tech Stack", value: "Dual-stack" },
+      { label: "Financial Ratios", value: "20+" },
+      { label: "AI Analysis", value: "Claude API" },
+      { label: "Data Sources", value: "6 APIs" },
+    ],
   },
   {
     slug: "starting-six",
@@ -167,6 +180,12 @@ export const projects: Project[] = [
       },
     ],
     color: "#ef4444",
+    metrics: [
+      { label: "Pokemon Indexed", value: "1000+" },
+      { label: "Test Suite", value: "138 tests" },
+      { label: "Type Matrix", value: "18x18" },
+      { label: "Sync Pipeline", value: "6 stages" },
+    ],
   },
   {
     slug: "ode-to-myrient",
@@ -211,5 +230,11 @@ export const projects: Project[] = [
       },
     ],
     color: "#a855f7",
+    metrics: [
+      { label: "Parallel Workers", value: "2-4" },
+      { label: "Platforms Scraped", value: "16" },
+      { label: "Download Method", value: "CDP" },
+      { label: "Resume Support", value: "Full" },
+    ],
   },
 ];

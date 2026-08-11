@@ -3,6 +3,11 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # `main` requires the `build` check, but this workflow only ran on push, so a PR
+  # could never produce it and every PR was unmergeable. Build on PRs too; the
+  # deploy half stays push-only (see the guards below).
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -11,7 +16,10 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  # Real deploys keep sharing the single `pages` group so they serialise. PR runs
+  # get their own per-branch group, otherwise opening a PR would cancel an
+  # in-flight production deploy.
+  group: ${{ github.event_name == 'pull_request' && format('pages-pr-{0}', github.head_ref) || 'pages' }}
   cancel-in-progress: true
 
 jobs:
@@ -25,12 +33,17 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      # Artifact upload is deploy machinery, not validation. On a PR the build
+      # above is the whole point, so skip it there.
       - uses: actions/upload-pages-artifact@v5
+        if: github.event_name != 'pull_request'
         with:
           path: dist
 
   deploy:
     needs: build
+    # Never publish a pull request to the live site.
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

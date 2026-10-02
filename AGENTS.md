@@ -4,7 +4,7 @@ This is the tool-neutral, self-contained guide to this repository. `CLAUDE.md` i
 
 ## Site and stack
 
-This repository builds a static software portfolio for GitHub Pages. It uses Astro 5, TypeScript, Tailwind CSS 4, Node 22, and npm. There is no application server or database in this repository.
+This repository builds a static software portfolio for GitHub Pages. It uses Astro 7, TypeScript, Tailwind CSS 4, Node 22, and npm. There is no application server or database in this repository.
 
 ## Commands
 

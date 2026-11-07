@@ -123,7 +123,7 @@ export const projects: Project[] = [
           "Instead of building custom scoring models, Claude can synthesize fundamentals, price trends, and news into coherent analysis. The prompts are tuned for concise, actionable output.",
       },
     ],
-    color: "#3b82f6",
+    color: "#2563eb",
     metrics: [
       { label: "Tech Stack", value: "Dual-stack" },
       { label: "Financial Ratios", value: "20+" },

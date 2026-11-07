@@ -64,7 +64,7 @@ export const projects: Project[] = [
           "node-cron runs inside the Next.js process. Simpler deployment for a single-user app that doesn't need horizontal scaling.",
       },
     ],
-    color: "#3b82f6",
+    color: "#f59e0b",
     metrics: [
       { label: "Games Tracked", value: "538+" },
       { label: "Price Snapshots", value: "15k+" },
@@ -123,7 +123,7 @@ export const projects: Project[] = [
           "Instead of building custom scoring models, Claude can synthesize fundamentals, price trends, and news into coherent analysis. The prompts are tuned for concise, actionable output.",
       },
     ],
-    color: "#10b981",
+    color: "#3b82f6",
     metrics: [
       { label: "Tech Stack", value: "Dual-stack" },
       { label: "Financial Ratios", value: "20+" },

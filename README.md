@@ -2,6 +2,8 @@
 
 This repository contains an Astro site for Andrew Smith's projects and experience.
 
+Released continuously from `main`; there are no versioned releases.
+
 ## Site structure
 
 - `src/pages/` contains the home page, history page, and project detail routes.

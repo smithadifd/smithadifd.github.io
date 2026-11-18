@@ -39,3 +39,5 @@ The pages import their content from `src/data/`; `getStaticPaths` generates a pa
 - Keep generated `dist/` output out of commits.
 
 Backup posture: the site is rebuilt from versioned source; no separate application data is stored here.
+
+Release class: continuous
